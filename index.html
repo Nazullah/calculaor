@@ -1,197 +1,60 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naz Calculator</title>
-    
-    <style type="text/css">
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0px;
-            /* fixed spelling: 'morgin' to 'margin' */
-            height: 100vh;
-            /* fixed height to full viewport */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
-        }
-
-        .calcu {
-            height: 100%;
-            width:;
-            background-color: lightblue;
-            border-radius: 5px;
-            padding: 10px;
-            padding-bottom: 30px;
-            box-sizing: border-box;
-        }
-       
-        .screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 5px;
-            height: 33.33%;
-            border-radius: 5px;
-        }
-
-        .search {
-            width: 100%;
-            height: 80%;
-            font-size: 40px;
-            /* text visibility ke liye opacity hatai aur size adjust kiya */
-            text-align: right;
-            padding-right: 10px;
-            box-sizing: border-box;
-            border-radius: 8px;
-            border: none;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .search:focus {
-            outline: none;
-        }
-
-        .buttons {
-            height: 66.66%;
-            display: grid;
-            column-gap: 10px;
-            row-gap: 10px;
-            padding: 5px;
-            padding-top: 8px;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        button {
-            font-size: 150%;
-            border-radius: 50%;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        button:active {
-            background-color: lightblue;
-        }
-
-        p {
-            margin: 0;
-            font-size: 20px;
-            color: white;
-            font-weight: bold;
-            opacity: 0.7;
-            padding-left: 8px;
-            padding-right: 8px;
-            border-radius: 10px;
-        }
-        @media(max-width:600px) {
-        .calcu{
-            width: 100%;
-            height: 90%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Calculator</title>
+<link rel="stylesheet" href="calcu.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 <body>
 
-    <div class="calcu">
-        <div class="screen">
-            <p>Naz-Calculator</p>
-            <!-- ID add ki hai taaki JavaScript isko select kar sake -->
-            <input type="text" id="display" class="search" placeholder="0" readonly>
-        </div>
-        <div class="buttons">
-            <!-- Functions add kiye hain har button ke kaam ke mutabik -->
-            <button onclick="clearScreen()">AC</button>
-            <button onclick="backspace()">&#x232B;</button>
-            <button onclick="appendValue('%')">%</button>
-            <button onclick="appendValue('/')">÷</button>
-
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="appendValue('*')">×</button>
-
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="appendValue('-')">-</button>
-
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('+')">+</button>
-
-            <button onclick="toggleSign()">+/-</button>
-            <button onclick="appendValue('0')">0</button>
-            <button onclick="appendValue('.')">.</button>
-            <button onclick="calculate()">=</button>
-        </div>
+<div class="calculator">
+  <div class="naz">
+    <b>Nazullah</b>
+  </div>
+    
+    <div class="display">
+        <div class="history" id="history"></div>
+        <input type="text" id="display" placeholder="0" readonly>
+        <button id="themeBtn" onclick="chengTheme()">
+    <i class="fa-solid fa-sun"></i>
+</button>
     </div>
 
-    <!-- JavaScript Code -->
-    <script type="text/javascript">
-        // Screen element ko select kiya
-        const display = document.getElementById('display');
-        let calculation = '';
+    <div class="buttons">
 
-        // Screen par kuch bhi likhne ke liye function
-        function appendValue(value) {
-            calculation += value;
-            display.value = calculation;
-        }
+        <button class="gray" onclick="clearScreen()">C</button>
+        <button class="gray" onclick="toggleSign()">+/-</button>
+        <button class="gray" onclick="appendValue('%')">%</button>
+        <button class="orange" onclick="appendValue('/')">÷</button>
 
-        // AC button ke liye (Sab clear karne ke liye)
-        function clearScreen() {
-            calculation = '';
-            display.value = '';
-        }
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button class="orange" onclick="appendValue('*')">×</button>
 
-        // Backspace (Ek number delete karne ke liye)
-        function backspace() {
-            calculation = calculation.slice(0, -1);
-            display.value = calculation;
-        }
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button class="orange" onclick="appendValue('-')">−</button>
 
-        // Plus/Minus toggling ke liye (+ ko - aur - ko + karne ke liye)
-        function toggleSign() {
-            if (calculation) {
-                if (calculation.startsWith('-')) {
-                    calculation = calculation.substring(1);
-                } else {
-                    calculation = '-' + calculation;
-                }
-                display.value = calculation;
-            }
-        }
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button class="orange" onclick="appendValue('+')">+</button>
 
-        // Final calculation karne ke liye (= button)
-        function calculate() {
-            try {
-                // eval() expression ko solve karega
-                if (calculation !== '') {
-                    let result = eval(calculation);
-                    display.value = result;
-                    calculation = result.toString();
-                    // taaki aage mazeed calculate kiya ja sake
-                }
-            } catch (error) {
-                display.value = "Error";
-                calculation = '';
-            }
-        }
-    </script>
+        <button class="zero" onclick="appendValue('0')">0</button>
+        <button onclick="appendValue('.')">.</button>
+        <button class="orange" onclick="calculate()">=</button>
+
+    </div>
+
+</div>
+
+<script src="calcu.js"></script>
+
 </body>
-
 </html>

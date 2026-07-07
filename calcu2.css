@@ -1,0 +1,173 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#dadadb,#dfe8f9);
+}
+
+.calculator{
+
+width:340px;
+padding:20px;
+border-radius:35px;
+
+background:rgba(255,255,255,.55);
+backdrop-filter:blur(20px);
+
+border:3px solid rgba(255,255,255,.5);
+
+box-shadow:
+12px 12px 25px rgba(0,0,0,.12),
+-10px -10px 20px rgba(255,255,255,.8);
+
+}
+.naz{
+  color: #394250;
+  display: flex;
+  justify-content: center;
+  
+}
+.display{
+
+height:160px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+align-items:flex-end;
+
+}
+#themeBtn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#394250;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    position:absolute;
+    top: 50px;
+    left: 50px;
+
+}
+
+#themeBtn:hover{
+    transform:scale(1.1);
+}
+#themeBtn:focus{
+    background-color: #f28a00;
+}
+.history{
+
+font-size:20px;
+color:#8a8a8a;
+margin-bottom:10px;
+
+}
+
+#display{
+
+width:100%;
+border:none;
+outline:none;
+background:transparent;
+font-size:55px;
+font-weight:300;
+text-align:right;
+color:#222;
+
+}
+
+.buttons{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+
+}
+
+button{
+
+height:68px;
+border:none;
+border-radius:22px;
+cursor:pointer;
+
+font-size:24px;
+font-weight:600;
+
+background:rgba(255,255,255,.65);
+color:#222;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+6px 6px 15px rgba(0,0,0,.12),
+-6px -6px 15px rgba(255,255,255,.9);
+
+transition:.2s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+button:active{
+
+transform:scale(.94);
+
+}
+
+.gray{
+
+background:#edf1f8;
+color:#444;
+
+}
+
+.orange{
+
+background:linear-gradient(180deg,#ffb23f,#ff8c00);
+color:white;
+
+}
+
+.zero{
+
+grid-column:span 2;
+
+}
+
+@media(max-width:480px){
+
+.calculator{
+
+width:95%;
+
+}
+
+button{
+
+height:60px;
+font-size:22px;
+
+}
+
+#display{
+
+font-size:45px;
+
+}
+
+}
