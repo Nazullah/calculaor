@@ -37,20 +37,19 @@ box-shadow:
 }
 .display{
 
-height:160px;
+height:170px;
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
 align-items:flex-end;
-
+padding: 15px;
 }
 #themeBtn{
     width:45px;
     height:45px;
     border:none;
     border-radius:50%;
-    background:#394250;
-    color:#fff;
+    background:#f28a00;
     font-size:20px;
     cursor:pointer;
     position:absolute;
@@ -79,7 +78,7 @@ width:100%;
 border:none;
 outline:none;
 background:transparent;
-font-size:55px;
+font-size:60px;
 font-weight:300;
 text-align:right;
 color:#222;
@@ -104,7 +103,8 @@ cursor:pointer;
 font-size:24px;
 font-weight:600;
 
-background:rgba(255,255,255,.65);
+/* background:rgba(255,255,255,.65); */
+background:linear-gradient(145deg,rgba(57, 66, 80,0.3),rgba(255,255,255,.65));;
 color:#222;
 
 backdrop-filter:blur(10px);
@@ -148,25 +148,34 @@ color:white;
 grid-column:span 2;
 
 }
-
+@keyframes ripple{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
+}
 @media(max-width:480px){
 
 .calculator{
-
-width:95%;
+border-radius:0%;
+width:100vh;
+height: 100vh;
 
 }
-
+.body{
+    padding: 0px;
+}
 button{
 
 height:60px;
 font-size:22px;
 
 }
-
+.display{
+    height:220px;
+}
 #display{
-
-font-size:45px;
+font-size:60px;
 
 }
 

@@ -71,12 +71,7 @@ circle.remove();
 });
 
 });
-// function chengTheme(){
-//   let theme=document.getElementById('themeBtn');
-//   let link=document.querySelector('link');
-//   link.setAttribute('href','calcu2.css');
-//   console.log(link);
-// }
+
 function chengTheme(){
 
     let link = document.querySelector('link');
