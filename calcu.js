@@ -71,21 +71,27 @@ circle.remove();
 });
 
 });
-
+let Theme=localStorage.getItem('theme') || 'calcu.css';
 function chengTheme(){
-
     let link = document.querySelector('link');
-
-    if(link.getAttribute('href') === 'calcu.css'){
-
+    
+    // localStorage.setItem('theme',Theme);
+    if(Theme==='calcu.css'){
         // Light Theme
         link.setAttribute('href','calcu2.css');
-
+        Theme='calcu2.css';
+        localStorage.setItem('theme',Theme);
+        console.log('first block run');
     } else {
 
         // Dark Theme
         link.setAttribute('href','calcu.css');
+        Theme='calcu.css';
+        localStorage.setItem('theme',Theme);
+        console.log('2nd block run');
 
     }
-
+console.log(Theme);
 }
+let link=document.querySelector('link');
+link.setAttribute('href',Theme);
